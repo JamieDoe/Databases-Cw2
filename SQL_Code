@@ -92,3 +92,5 @@ CREATE TABLE Treatment (
   TreatmentName VARCHAR(50),
   PRIMARY KEY (TreatmentID)
 );
+
+
