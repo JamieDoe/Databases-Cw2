@@ -37,7 +37,7 @@ CREATE TABLE MedicalHistory (
 );
 
 CREATE TABLE PatientTreatment (
-  TreatmentID CHAR(10) UNIQUE,
+  TreatmentID VARCHAR(10),
   PatientID CHAR(6) UNIQUE
 );
 
