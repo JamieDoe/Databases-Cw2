@@ -12,8 +12,8 @@ ORDER BY "Treatment Count" desc;
 SELECT WardSpeciality.WardName AS "Ward Name", WardSpeciality.SpecialityName AS "Speciality Name", 
 CONCAT (NurseStaff.Fname, NurseStaff.Lname) AS "Nurse Staff" ,CONCAT (DoctorStaff.Fname, DoctorStaff.Lname) AS "Doctor Staff"
 FROM ((WardSpeciality 
-INNER JOIN NurseStaff ON NurseStaff.Fname = NurseStaff.Lname)
-INNER JOIN DoctorStaff ON DoctorStaff.Fname = DoctorStaff.Lname);
+JOIN NurseStaff ON NurseStaff.Fname = NurseStaff.Lname)
+JOIN DoctorStaff ON DoctorStaff.Fname = DoctorStaff.Lname);
 
 /*Jacobs Queries*/
 

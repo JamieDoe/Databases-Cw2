@@ -53,13 +53,13 @@ INSERT INTO Ward (WardName, HeadNurseID, WardRecordID) VALUES
 ('Thomas Ward',404616,465997),
 ('Jack Ward',736700,776548);
 
-INSERT INTO WardSpeciality (SpecialityID, SpecialityName) VALUES 
-(776388, 'Cardiology'),
-(261626, 'Toxology'),
-(410978, 'Radiotherapy'),
-(432423, 'General Care'),
-(964598, 'Ophthalmologist'),
-(814516, 'Intensive Care');
+INSERT INTO WardSpeciality (SpecialityID, SpecialityName, WardName) VALUES 
+(776388, 'Cardiology','Alexa Ward'),
+(261626, 'Toxology', 'Tegmark Ward'),
+(410978, 'Radiotherapy','Stanhope Ward'),
+(432423, 'General Care','Jack Ward'),
+(964598, 'Ophthalmologist','Nighting Ward'),
+(814516, 'Intensive Care','Orwell Ward');
 
 INSERT INTO NurseStaff (NurseID, Fname, Lname, WardName) VALUES 
   (823047, 'Chelsea', 'Mckenzie', 'Nighting Ward'),
