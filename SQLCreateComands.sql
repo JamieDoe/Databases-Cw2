@@ -1,90 +1,83 @@
 CREATE DATABASE hospital_db;
 
 CREATE TABLE WardRecord (
-  WardRecordID CHAR(6) UNIQUE,
-  SpecialityID CHAR(6),
+  WardRecordID INT,
+  SpecialityID INT,
   WardName VARCHAR(15),
   PRIMARY KEY (WardRecordID)
 );
 
 CREATE TABLE Ward (
-  WardName VARCHAR(15) UNIQUE,
-  HeadNurseID CHAR(6),
-  NurseID CHAR(6),
-  WardRecordID CHAR(6),
+  WardName VARCHAR(15),
+  HeadNurseID INT,
+  WardRecordID INT,
   PRIMARY KEY (WardName)
 );
 
 CREATE TABLE Patient (
-  PatientID CHAR(6) UNIQUE,
-  PatientRecordID CHAR(6),
-  DoctorID CHAR(6),
+  PatientID INT,
+  PatientRecordID INT,
+  DoctorID INT,
   PRIMARY KEY (PatientID)
 );
 
 CREATE TABLE MedicalHistory (
-  MedicalRecordID VARCHAR(10) UNIQUE,
+  MedicalRecordID INT,
   Complaint VARCHAR(40),
   TreatmentDescription VARCHAR(40),
   DateAdmitted DATE,
   DateDischarged DATE,
-  DTS DATE,
-  DTE DATE,
-  PatientRecordID CHAR(6),
-  DoctorID CHAR(6),
-  TreatmentID CHAR(6),
   PRIMARY KEY (MedicalRecordID)
 );
 
 CREATE TABLE PatientTreatment (
-  TreatmentID VARCHAR(10),
-  PatientID CHAR(6) UNIQUE
+  TreatmentID int,
+  PatientID int
 );
 
 CREATE TABLE NurseStaff (
-  NurseID CHAR(6) UNIQUE,
+  NurseID INT,
   Fname VARCHAR(20),
   Lname VARCHAR(20),
-  WardName CHAR(6),
+  WardName VARCHAR(15),
   PRIMARY KEY (NurseID)
 );
 
 CREATE TABLE DoctorStaff (
-  DoctorID CHAR(6) UNIQUE,
+  DoctorID INT,
   Fname VARCHAR(20),
   Lname VARCHAR(20),
-  PatientID CHAR(6),
-  TreatmentID CHAR(10),
-  PRIMARY KEY (DoctorID)
+  PatientID INT,
+  TreatmentID INT
 );
 
 CREATE TABLE PatientDoctors (
-  PatientID CHAR(6) UNIQUE,
-  DoctorID CHAR(6) UNIQUE
+  PatientID INT,
+  DoctorID INT
 );
 
 CREATE TABLE PatientRecord (
-  PatientRecordID CHAR(6) UNIQUE,
+  PatientRecordID INT,
   Fname VARCHAR(20),
   Sname VARCHAR(20),
   DOB DATE,
   GPFname VARCHAR(20),
   GPLname VARCHAR(20),
   GPAddress VARCHAR(100),
-  PatientID CHAR(6),
-  MedicalRecordID VARCHAR(10),
+  PatientID INT,
+  MedicalRecordID INT,
   PRIMARY KEY (PatientRecordID)
 );
 
 CREATE TABLE WardSpeciality (
-  SpecialityID CHAR(6) UNIQUE,
+  SpecialityID INT,
   SpecialityName VARCHAR(50),
   WardName VARCHAR(15),
   PRIMARY KEY (SpecialityID)
 );
 
 CREATE TABLE Treatment (
-  TreatmentID CHAR(10) UNIQUE,
+  TreatmentID INT,
   TreatmentName VARCHAR(50),
   PRIMARY KEY (TreatmentID)
 );
