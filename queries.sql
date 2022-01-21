@@ -1,11 +1,14 @@
 /*Jamies Queries*/
 
-SELECT CONCAT(Treatment.TreatmentID,' ' , Treatment.TreatmentName) AS "Treatment", DoctorID, CONCAT(DoctorStaff.Fname,' ',DoctorStaff.Lname) AS "Doctors Name"
+SELECT COUNT(Treatment.TreatmentID) AS "Treatment Count", Treatment.TreatmentName AS "Treatment", CONCAT(DoctorID,' ',DoctorStaff.Fname,' ',DoctorStaff.Lname) AS "Doctors Name & ID"
 FROM (DoctorStaff
 JOIN treatment ON treatment.treatmentid = doctorstaff.treatmentid)
-ORDER BY treatment.treatmentid desc;
+GROUP BY treatment.treatmentid, DoctorID, doctorstaff.Fname, doctorstaff.Lname
+ORDER BY "Treatment Count" desc;
+
 
 /*Cams Query*/
+
 SELECT WardSpeciality.WardName AS "Ward Name", WardSpeciality.SpecialityName AS "Speciality Name", 
 CONCAT (NurseStaff.Fname, NurseStaff.Lname) AS "Nurse Staff" ,CONCAT (DoctorStaff.Fname, DoctorStaff.Lname) AS "Doctor Staff"
 FROM ((WardSpeciality 
@@ -27,3 +30,4 @@ JOIN doctorstaff ON doctorstaff.doctorid = patientdoctors.doctorid)
 JOIN medicalhistory ON medicalrecordid = doctorstaff.doctorid)
 WHERE medicalhistory.dateadmitted BETWEEN '01/10/2016' AND '11/01/2019'
 GROUP BY doctorstaff.fname, doctorstaff.lname;
+
